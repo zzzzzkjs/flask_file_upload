@@ -10,12 +10,8 @@ from .main.controller.view_controller import api as view_ns
 
 blueprint = Blueprint('api', __name__)
 
-
-api = Api(blueprint,
-          title='FLASK RESTPLUS(RESTX) API BOILER-PLATE WITH JWT',
-          version='1.0',
-          description='파이썬(flask) API 서버 입니다.'
-          )
+api = Api(blueprint, title='FLASK RESTPLUS(RESTX) API BOILER-PLATE WITH JWT',
+          version='1.0', description='파이썬(flask) API 서버 입니다.')
 
 api.add_namespace(file_ns, path='/file')
 api.add_namespace(dl_ns, path='/dl')
