@@ -1,4 +1,6 @@
 from flask_restx import Namespace, Resource, fields
+from flask import request
+from werkzeug.utils import secure_filename
 
 api = Namespace("file", description="file related operations")
 
@@ -8,15 +10,12 @@ api = Namespace("file", description="file related operations")
 @api.route("/upload")
 class file(Resource):
     @api.doc("upload_file")
-    def upload(self):
-        """List all dogs"""
-        return {'resultCode': '0000', 'resultMessage': '정상처리'}
-
-# #파일 업로드 처리
-# @app.route('/fileUpload', methods = ['GET', 'POST'])
-# def upload_file():
-# 	if request.method == 'POST':
-# 		f = request.files['file']
-# 		#저장할 경로 + 파일명
-# 		f.save('./uploads/' + secure_filename(f.filename)) # 유니코드 지원안하는듯 파일명 한글일경우 오류남
-# 		return '업로드 완료'
+    def post(self):
+        files = request.files
+        # 저장할 경로 + 파일명
+        # 유니코드 지원안하는듯 파일명 한글일경우 오류남
+        # print(type(files))
+        for f in files.to_dict(flat=False)['filename[]']:
+            f.save('./uploads/'+secure_filename(f.filename))
+            print(f.filename)
+        return {"result": "success"}
