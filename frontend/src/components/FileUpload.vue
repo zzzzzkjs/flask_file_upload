@@ -1,6 +1,5 @@
 <template>
-  <div class="file_upload">
-    <!-- name="filename[]" -->
+  <div id="fileUpload">
     <form @submit.prevent="uploadImages()">
       <input type="file" multiple ref="file" @change="onFileChange($event)" />
       <input type="submit" />
