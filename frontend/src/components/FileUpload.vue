@@ -1,11 +1,8 @@
 <template>
   <div class="file_upload">
-    <form
-      action="http://127.0.0.1:5000/file/upload"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <input type="file" multiple name="filename[]" />
+    <!-- name="filename[]" -->
+    <form @submit.prevent="uploadImages()">
+      <input type="file" multiple ref="file" @change="onFileChange($event)" />
       <input type="submit" />
     </form>
   </div>
@@ -20,8 +17,21 @@ export default {
     };
   },
   methods: {
+    onFileChange(e) {
+      console.log(e);
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      console.log("==onFileChange==");
+    },
     uploadImages() {
-      this.$dispatch("fileUpload", {}).then((res) => {
+      let formData = new FormData();
+
+      for (var i = 0; i < this.$refs.file.files.length; i++) {
+        let file = this.$refs.file.files[i];
+        formData.append("file", file);
+      }
+
+      this.$dispatch("fileUpload", formData).then((res) => {
         console.log(res);
       });
     },

@@ -15,7 +15,8 @@ class file(Resource):
         # 저장할 경로 + 파일명
         # 유니코드 지원안하는듯 파일명 한글일경우 오류남
         # print(type(files))
-        for f in files.to_dict(flat=False)['filename[]']:
+        # print(files)
+        for f in files.to_dict(flat=False)['file']:
             f.save('./uploads/'+secure_filename(f.filename))
             print(f.filename)
         return {"result": "success"}

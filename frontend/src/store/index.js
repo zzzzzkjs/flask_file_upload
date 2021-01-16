@@ -1,15 +1,19 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import apis from "@/api/apis.js";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
+  state: {},
+  mutations: {},
   actions: {
+    fileUpload(commit, params) {
+      console.log("actions fileUpload");
+      return apis.fileUpload(params, (res) => {
+        return res;
+      });
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+});
