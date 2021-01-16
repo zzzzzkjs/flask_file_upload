@@ -14,19 +14,15 @@
 <script>
 export default {
   name: "FileUpload",
-  props: {
-    msg: String,
+  data() {
+    return {
+      data: "",
+    };
   },
   methods: {
     uploadImages() {
-      this.$dispatch("comboData_names", {}).then((res) => {
+      this.$dispatch("fileUpload", {}).then((res) => {
         console.log(res);
-        for (let i in res.data) {
-          this.type_of_barometer.push({
-            name: res.data[i].data_name,
-            description: res.data[i].descrition,
-          });
-        }
       });
     },
   },
