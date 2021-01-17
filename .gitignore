@@ -133,5 +133,5 @@ ENV/
 /migrations
 
 # CIFAR-10 CNN 테스트 관련 파일들
-test*.png
+./test*.png
 /data
