@@ -25,7 +25,6 @@ train_dataset = datasets.CIFAR10(root=CIFAR_DATA_PATH,
                                  download=True,
                                  transform=transforms.ToTensor())
 
-# TODO: 데이터가 바이너리로 되있어서 내가 임의로 이미지를 추가해줄수가없음..내가 업로드한 이미지 텐서형식으로 변경해주는 로직 추가해야됨
 test_dataset = datasets.CIFAR10(root=CIFAR_DATA_PATH,
                                 train=False,
                                 transform=transforms.ToTensor())
@@ -41,9 +40,6 @@ test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-# print(len(train_dataset.data))
-# print("@@@@@@@@@@@@@@@@@@")
-# print(type(train_dataset))
 ''' 데이터 확인하기 (1) '''
 for (X_train, y_train) in train_loader:
     print('X_train:', X_train.size(), 'type:', X_train.type())
