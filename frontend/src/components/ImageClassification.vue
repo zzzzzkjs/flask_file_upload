@@ -1,15 +1,15 @@
 <template>
-  <div id="fileUpload">
-    <form @submit.prevent="uploadImages()">
+  <div id="imageClassification">
+    <form @submit.prevent="imgClassificationByCNN()">
       <input type="file" multiple ref="file" @change="onFileChange($event)" />
-      <input type="submit" style="margin-bottom: 20px" value="파일업로드"/>
+      <input type="submit" style="margin-bottom: 20px" value="이미지 분석" />
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: "FileUpload",
+  name: "ImageClassification",
   data() {
     return {
       data: "",
@@ -22,7 +22,7 @@ export default {
       if (!files.length) return;
       console.log("==onFileChange==");
     },
-    uploadImages() {
+    imgClassificationByCNN() {
       let formData = new FormData();
 
       for (var i = 0; i < this.$refs.file.files.length; i++) {
@@ -30,7 +30,7 @@ export default {
         formData.append("file", file);
       }
 
-      this.$dispatch("fileUpload", formData).then((res) => {
+      this.$dispatch("imgClassificationByCNN", formData).then((res) => {
         console.log(res);
       });
     },

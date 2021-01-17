@@ -13,6 +13,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# CIFAR-10 CNN 테스트 관련 파일들
+text*.png
+/data
+
 # == 보일러플레이트 소스 추가하면서 아래내용 추가 ==
 
 # Editor directories and files

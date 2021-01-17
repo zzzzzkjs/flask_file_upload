@@ -9,7 +9,9 @@ export const URLS = {
   file: {
     upload: SERVER + "file/upload",
   },
-  deeplearning: {},
+  deeplearning: {
+    imgClassificationByCNN: SERVER + "dl/imgClassificationByCNN",
+  },
 };
 
 export default URLS;

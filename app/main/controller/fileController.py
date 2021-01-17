@@ -4,9 +4,6 @@ from werkzeug.utils import secure_filename
 
 api = Namespace("file", description="file related operations")
 
-# 요청 methods설정 할수있는지 확인 필요
-
-
 @api.route("/upload")
 class file(Resource):
     @api.doc("upload_file")

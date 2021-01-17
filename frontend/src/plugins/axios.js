@@ -6,7 +6,7 @@ import axios from "axios";
 // Full config:  https://github.com/axios/axios#request-config
 let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
-  timeout: 5 * 1000, // Timeout
+  timeout: 30 * 1000, // Timeout - 딥러닝 api쪽이 오래걸리는경우가 있어서 30초로 걸어놈(TODO: 로딩바 추가해야될듯)
   // withCredentials: true, // Check cross-site Access-Control
   method: "post",
   headers: { "content-type": "application/json" },

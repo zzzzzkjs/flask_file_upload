@@ -14,6 +14,12 @@ export default new Vuex.Store({
         return res;
       });
     },
+    imgClassificationByCNN(commit, params) {
+      console.log("actions imgClassificationByCNN");
+      return apis.imgClassificationByCNN(params, (res) => {
+        return res;
+      });
+    },
   },
   modules: {},
 });

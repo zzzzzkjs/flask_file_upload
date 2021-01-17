@@ -10,6 +10,14 @@ const Apis = {
     console.log("@@@@@@@@@@@")
     return callBackFunction(data);
   },
+  async imgClassificationByCNN(files, callBackFunction) {
+    console.log("apis imgClassificationByCNN!");
+    const { data } = await Vue.axios.post(URLS.deeplearning.imgClassificationByCNN, files, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    console.log("==imgClassificationByCNN==")
+    return callBackFunction(data);
+  },
 };
 
 export default Apis;
