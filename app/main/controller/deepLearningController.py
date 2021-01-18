@@ -3,7 +3,7 @@ import torch
 # import matplotlib.pyplot as plt
 from flask_restx import Namespace, Resource
 from torchvision import transforms, datasets, utils
-from app.main.batch_training.scratch import CNN
+from app.main.batch_training.cnn import CNN
 
 api = Namespace("dl", description="deeplearning related operations")
 
